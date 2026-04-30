@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Tugas | Profil</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="min-h-screen flex flex-col relative overflow-x-hidden selection:bg-[#0a84ff]/30">
+
+    <div class="ambient-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </div>
+
+    <nav class="glass-nav fixed w-full top-0 z-50 pt-2 pb-2 bg-black/60 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-14">
+                <a href="index.html" class="flex-shrink-0 flex items-center gap-3 hover-lift">
+                    <div class="p-2 bg-white/5 rounded-xl border border-white/10">
+                        <i data-lucide="network" class="w-5 h-5 text-white"></i>
+                    </div>
+                    <div class="flex flex-col justify-center">
+                        <span class="font-bold text-lg tracking-tight text-white leading-tight">RO Portal</span>
+                        <span class="text-[10px] text-[#a1a1a6] font-semibold tracking-wider uppercase mt-0.5">Riset
+                            Operasi</span>
+                    </div>
+                </a>
+
+                <div class="hidden md:flex items-center gap-6">
+                    <div class="flex items-baseline space-x-2 bg-white/5 p-1.5 rounded-full border border-white/10">
+                        <a href="index.html" id="nav-home"
+                            class="px-5 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 text-[#a1a1a6] hover:text-white">Beranda</a>
+                        <a href="profile.html" id="nav-profile"
+                            class="px-5 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 text-[#a1a1a6] hover:text-white">Profil</a>
+                        <a href="tugas.html" id="nav-tasks"
+                            class="px-5 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 text-[#a1a1a6] hover:text-white">Tugas
+                            Saya</a>
+                    </div>
+                </div>
+
+                <div class="md:hidden flex items-center gap-4">
+                    <button id="mobile-menu-btn"
+                        class="p-2 rounded-full text-[#a1a1a6] hover:text-white hover:bg-white/10 focus:outline-none transition">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-[#1c1c1e] border-t border-white/10 absolute w-full mt-2 shadow-lg">
+            <div class="px-4 pt-2 pb-4 space-y-2">
+                <a href="index.html"
+                    class="block w-full text-left px-4 py-3 rounded-xl text-base font-semibold text-[#a1a1a6] hover:bg-white/5 hover:text-white transition">Beranda</a>
+                <a href="profile.html"
+                    class="block w-full text-left px-4 py-3 rounded-xl text-base font-semibold text-white bg-white/10">Profil</a>
+                <a href="tugas.html"
+                    class="block w-full text-left px-4 py-3 rounded-xl text-base font-semibold text-[#a1a1a6] hover:bg-white/5 hover:text-white transition">Tugas
+                    Saya</a>
+            </div>
+        </div>
+    </nav>
+
+    <main
+        class="flex-grow pt-28 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full z-10 flex flex-col items-center justify-center min-h-[calc(100vh-100px)]">
+        <section class="w-full max-w-4xl mx-auto overflow-visible">
+            <div class="py-10 flex flex-col items-center relative">
+
+                <div class="id-card-wrapper w-full max-w-[340px] flex flex-col items-center relative mt-6">
+                    <svg id="lanyard-svg" class="absolute z-0 pointer-events-none"
+                        style="left: 50%; top: 0; transform: translate(-50%, -1500px); width: 1000px; height: 2500px; overflow: visible;">
+                        <path id="lanyard-path-glow" d="M 500 0 Q 500 750 500 1500" stroke="rgba(255, 255, 255, 0.05)"
+                            stroke-width="12" fill="none" stroke-linecap="round" style="filter: blur(4px);" />
+                        <path id="lanyard-path" d="M 500 0 Q 500 750 500 1500" stroke="url(#lanyard-grad)"
+                            stroke-width="6" fill="none" stroke-linecap="round"
+                            style="filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5));" />
+                        <defs>
+                            <linearGradient id="lanyard-grad" x1="500" y1="0" x2="500" y2="1500"
+                                gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#000000" />
+                                <stop offset="50%" stop-color="#111111" />
+                                <stop offset="100%" stop-color="#333333" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+
+                    <div id="interactive-card" class="relative flex flex-col items-center z-10 w-full"
+                        style="transform-origin: top center;">
+                        <div
+                            class="w-8 h-10 -mb-3 rounded-t-xl rounded-b-md border-[3px] border-[#333] bg-gradient-to-br from-gray-500 via-gray-600 to-gray-800 shadow-md z-20 relative">
+                            <div
+                                class="absolute bottom-1 left-1/2 -translate-x-1/2 w-3 h-3 border-[2px] border-gray-900 rounded-full bg-gray-400">
+                            </div>
+                        </div>
+
+                        <div class="glass-card w-full rounded-[32px] p-6 relative z-10 overflow-hidden bg-[#1c1c1e]">
+                            <div
+                                class="w-full flex justify-between items-center mb-6 relative z-10 border-b border-white/10 pb-4 pointer-events-none">
+                                <span class="font-extrabold text-lg tracking-tight text-white leading-tight">RO <span
+                                        class="text-[#0a84ff]">Portal</span></span>
+                                <span
+                                    class="text-[10px] uppercase font-bold text-[#a1a1a6] tracking-widest bg-white/5 px-2 py-1 rounded-md">ID
+                                    Card</span>
+                            </div>
+
+                            <div class="flex flex-col items-center text-center relative z-10">
+                                <div
+                                    class="w-28 h-28 rounded-full border-[3px] border-[#333] shadow-[0_8px_20px_rgba(0,0,0,0.5)] overflow-hidden bg-black mb-4 relative group pointer-events-none">
+                                    <img src="mypoto.png"
+                                        alt="Foto Profil" class="w-full h-full object-cover filter grayscale-[20%]">
+                                </div>
+
+                                <h2 class="text-xl font-bold text-white mb-1 pointer-events-none">Moch Nabil Atsila
+                                    Zayan</h2>
+                                <p
+                                    class="text-[#0a84ff] font-mono text-sm mb-6 tracking-[0.15em] font-semibold pointer-events-none">
+                                    2403010073</p>
+
+                                <div
+                                    class="w-full bg-black/40 rounded-2xl p-4 border border-white/5 mb-6 text-left pointer-events-none">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center"><i
+                                                data-lucide="graduation-cap" class="w-4 h-4 text-white"></i></div>
+                                        <div>
+                                            <p class="text-[10px] text-[#a1a1a6] uppercase font-bold tracking-wider">
+                                                Prodi</p>
+                                            <p class="text-sm text-white font-semibold">Teknik Informatika</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center"><i
+                                                data-lucide="users" class="w-4 h-4 text-white"></i></div>
+                                        <div>
+                                            <p class="text-[10px] text-[#a1a1a6] uppercase font-bold tracking-wider">
+                                                Kelas</p>
+                                            <p class="text-sm text-white font-semibold">TI-4C</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center justify-center gap-4 w-full mb-6 relative z-10">
+
+                                    <a href="https://instagram.com/muhamad_nbl_zyyn" target="_blank"
+                                        class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#a1a1a6] hover:text-white hover:bg-gradient-to-tr hover:from-[#f09433] hover:via-[#e6683c] hover:to-[#bc1888] hover:border-transparent transition-all duration-300">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                                        </svg>
+                                    </a>
+
+                                    <a href="https://tiktok.com/@zaynn1611" target="_blank"
+                                        class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#a1a1a6] hover:text-white hover:bg-black hover:border-white/30 transition-all duration-300">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                                            <path
+                                                d="M15 8a4 4 0 1 0 0-8c0 2.2.9 4.2 2.5 5.5A6 6 0 0 1 21 6v4a10 10 0 0 0-6-2.5V16a4 4 0 1 1-4-4">
+                                            </path>
+                                        </svg>
+                                    </a>
+
+                                    <a href="https://github.com/nabil-zayan" target="_blank"
+                                        class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#a1a1a6] hover:text-white hover:bg-gray-800 hover:border-gray-600 transition-all duration-300">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path
+                                                d="M15 22v-4a4.8 4.8 0 0 0-1-3.02c3.19-.34 6.52-1.58 6.52-7.02a5.3 5.3 0 0 0-1.53-3.9 4.4 4.4 0 0 0-.16-3.8s-1.25-.4-4 1.5a13.98 13.98 0 0 0-7 0C6.25 2.2 5 2.6 5 2.6a4.4 4.4 0 0 0-.16 3.8A5.3 5.3 0 0 0 3 9.48c0 5.42 3.3 6.66 6.48 7.02a4.8 4.8 0 0 0-1 2.98v4">
+                                            </path>
+                                            <path d="M3 20c-3-1-1-4-8-4"></path>
+                                        </svg>
+                                    </a>
+
+                                </div>
+
+                                <div class="w-full pointer-events-none text-white">
+                                    <div class="w-full h-10 barcode-pattern opacity-40 rounded-sm"></div>
+                                    <p class="text-[10px] text-[#a1a1a6] font-mono mt-1 tracking-widest">* * 2 4 0 3 0 1
+                                        0 0 7 3 * *</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 mb-8 reveal-on-scroll delay-100">
+                    <button onclick="copyLink()"
+                        class="inline-flex items-center gap-2 bg-[#1c1c1e] hover:bg-[#2c2c2e] px-6 py-3.5 rounded-full border border-white/10 text-sm font-bold text-white shadow-sm transition-all group">
+                        <i data-lucide="share-2"
+                            class="w-4 h-4 text-[#a1a1a6] group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform"></i>
+                        Share ID Card Kamu
+                    </button>
+                </div>
+
+                <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-6 reveal-on-scroll delay-200" id="profile-stats">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="toast"
+        class="fixed -bottom-20 left-1/2 -translate-x-1/2 z-[110] bg-[#1c1c1e] px-6 py-4 rounded-full flex items-center gap-3 shadow-2xl opacity-0 transition-all duration-500 border border-white/10">
+        <div class="w-8 h-8 rounded-full bg-[#32d74b]/20 flex items-center justify-center text-[#32d74b]"><i
+                data-lucide="link" class="w-4 h-4"></i></div>
+        <div>
+            <p class="text-sm font-bold text-white">Link udah di-copy, yuk share!</p>
+        </div>
+    </div>
+
+    <footer
+        class="w-full border-t border-white/10 py-8 mt-auto z-10 bg-black/50 backdrop-blur-md text-center text-[#a1a1a6] text-sm font-medium">
+        &copy; 2026 RO Portal. Universitas Nusantara.</footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

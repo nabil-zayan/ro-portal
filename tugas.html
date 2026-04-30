@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Tugas | Tugas Saya</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: { fontFamily: { sans: ['Inter', 'sans-serif'] } }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="min-h-screen flex flex-col relative overflow-x-hidden selection:bg-[#0a84ff]/30">
+
+    <div class="ambient-bg">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </div>
+
+    <nav class="glass-nav fixed w-full top-0 z-50 pt-2 pb-2 bg-black/60 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-14">
+                <a href="index.html" class="flex-shrink-0 flex items-center gap-3 hover-lift">
+                    <div class="p-2 bg-white/5 rounded-xl border border-white/10">
+                        <i data-lucide="network" class="w-5 h-5 text-white"></i>
+                    </div>
+                    <div class="flex flex-col justify-center">
+                        <span class="font-bold text-lg tracking-tight text-white leading-tight">RO Portal</span>
+                        <span class="text-[10px] text-[#a1a1a6] font-semibold tracking-wider uppercase mt-0.5">Riset Operasi</span>
+                    </div>
+                </a>
+                
+                <div class="hidden md:flex items-center gap-6">
+                    <div class="flex items-baseline space-x-2 bg-white/5 p-1.5 rounded-full border border-white/10">
+                        <a href="index.html" id="nav-home" class="px-5 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 text-[#a1a1a6] hover:text-white">Beranda</a>
+                        <a href="profile.html" id="nav-profile" class="px-5 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 text-[#a1a1a6] hover:text-white">Profil</a>
+                        <a href="tugas.html" id="nav-tasks" class="px-5 py-1.5 rounded-full text-sm font-semibold transition-all duration-300 text-[#a1a1a6] hover:text-white">Tugas Saya</a>
+                    </div>
+                </div>
+
+                <div class="md:hidden flex items-center gap-4">
+                    <button id="mobile-menu-btn" class="p-2 rounded-full text-[#a1a1a6] hover:text-white hover:bg-white/10 focus:outline-none transition">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-[#1c1c1e] border-t border-white/10 absolute w-full mt-2 shadow-lg">
+            <div class="px-4 pt-2 pb-4 space-y-2">
+                <a href="index.html" class="block w-full text-left px-4 py-3 rounded-xl text-base font-semibold text-[#a1a1a6] hover:bg-white/5 hover:text-white transition">Beranda</a>
+                <a href="profile.html" class="block w-full text-left px-4 py-3 rounded-xl text-base font-semibold text-[#a1a1a6] hover:bg-white/5 hover:text-white transition">Profil</a>
+                <a href="tugas.html" class="block w-full text-left px-4 py-3 rounded-xl text-base font-semibold text-white bg-white/10">Tugas Saya</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-28 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full z-10 flex flex-col items-center justify-center min-h-[calc(100vh-100px)]">
+        <section class="w-full max-w-4xl mx-auto">
+            <div class="py-10">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 gap-6 reveal-on-scroll">
+                    <div class="w-full md:w-auto">
+                        <h2 class="text-3xl font-extrabold text-white mb-2 tracking-tight">Tugas Kamu</h2>
+                        <p class="text-[#a1a1a6]">Tempat buat ngelola dan ngumpulin semua tugas Riset Operasi kamu. Yuk, diselesaikan!</p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+                        <div class="bg-[#1c1c1e] flex items-center p-1 rounded-full w-full sm:w-auto border border-white/10 shadow-sm">
+                            <button id="filter-all" onclick="setFilter('all')" class="filter-btn active-filter flex-1 sm:flex-none px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 text-white">Semua</button>
+                            <button id="filter-submitted" onclick="setFilter('submitted')" class="filter-btn flex-1 sm:flex-none px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 text-[#a1a1a6] hover:text-white bg-transparent">Selesai</button>
+                            <button id="filter-pending" onclick="setFilter('pending')" class="filter-btn flex-1 sm:flex-none px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 text-[#a1a1a6] hover:text-white bg-transparent">Belum</button>
+                        </div>
+                        <div class="bg-[#1c1c1e] flex items-center px-4 py-2.5 rounded-full w-full sm:w-64 border border-white/10 shadow-sm focus-within:border-white/30 transition-all">
+                            <i data-lucide="search" class="w-4 h-4 text-[#a1a1a6] mr-3"></i>
+                            <input type="text" id="searchInput" oninput="handleSearch(this.value)" placeholder="Cari tugas di sini..." class="bg-transparent border-none outline-none text-sm text-white placeholder-[#a1a1a6] w-full">
+                        </div>
+                    </div>
+                </div>
+                <div class="glass-card p-6 md:p-8 mb-10 flex flex-col md:flex-row items-center gap-6 md:gap-10 border-l-[4px] border-l-[#0a84ff] relative overflow-hidden reveal-on-scroll delay-100" id="progress-widget"></div>
+                <div id="task-container" class="space-y-4"></div>
+            </div>
+        </section>
+    </main>
+
+    <div id="info-modal" class="fixed inset-0 z-[100] hidden items-center justify-center">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-md transition-opacity" onclick="closeInfoModal()"></div>
+        <div id="info-content" class="bg-[#1c1c1e] relative z-10 w-[90%] max-w-lg p-8 rounded-[32px] shadow-2xl transform scale-95 opacity-0 transition-all duration-300 border border-white/10">
+            <div class="flex justify-between items-start mb-6">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-white"><i data-lucide="book-open" class="w-6 h-6"></i></div>
+                    <div><p class="text-xs text-[#a1a1a6] font-bold uppercase tracking-widest mb-1">Detail Modul</p><h3 class="text-xl font-extrabold text-white" id="modal-info-title"></h3></div>
+                </div>
+                <button onclick="closeInfoModal()" class="p-2 rounded-full bg-white/5 hover:bg-white/10 text-[#a1a1a6] hover:text-white transition"><i data-lucide="x" class="w-5 h-5"></i></button>
+            </div>
+            <div class="bg-black/40 border border-white/5 rounded-2xl p-6 mb-8"><p class="text-[15px] text-[#f5f5f7] leading-relaxed font-medium" id="modal-info-desc"></p></div>
+            <button onclick="closeInfoModal()" class="w-full py-3.5 rounded-full bg-white/10 text-white font-semibold hover:bg-white/20 transition border border-white/10">Tutup Info</button>
+        </div>
+    </div>
+
+    <footer class="w-full border-t border-white/10 py-8 mt-auto z-10 bg-black/50 backdrop-blur-md text-center text-[#a1a1a6] text-sm font-medium">&copy; 2026 RO Portal. Universitas Nusantara.</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
