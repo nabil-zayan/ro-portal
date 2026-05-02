@@ -70,12 +70,11 @@ lucide.createIcons();
 
 // Data Management
 let taskData = [
-    { id: 1, title: "Tugas 1: Soal Mencari Nilai Minimum", date: "21 Apr 2026", status: "submitted", fileUrl: "#", description: "Belajar cara ngakalin untung rugi pakai metode grafik nih." },
-    { id: 2, title: "Tugas 2: Metode Simpleks", date: "26 Mar 2026", status: "submitted", fileUrl: "#", description: "Menganalisis tabel metode Simpleks buat mecahin masalah linear programming." },
-    { id: 3, title: "Tugas 3: Analisis Sensitivitas", date: "09 Apr 2026", status: "submitted", fileUrl: "#", description: "Cek rentang optimalitas sama harga bayangan dari hasil tabel akhirnya." },
-    { id: 4, title: "Tugas 4: Model Transportasi", date: "23 Apr 2026", status: "submitted", fileUrl: "#", description: "Nyari rute pengiriman barang paling hemat pakai metode NWC dan VAM." },
-    { id: 5, title: "Tugas 5: Assignment Problem", date: "28 Apr 2026", status: "pending", fileUrl: "", description: "Ngatur posisi kerja yang pas biar cepet selesai pakai metode Hungarian." },
-    { id: 6, title: "Project: Implementasi Kasus Nyata", date: "TBA", status: "locked", fileUrl: "", description: "Tugas kelompok buat nerapin ilmu Riset Operasi langsung di dunia nyata. Semangat!" }
+    { id: 1, title: "Tugas 1: Optimasi Biaya Pupuk (Metode Grafik)", date: "02 Mei 2026", status: "submitted", fileUrl: "https://drive.google.com/drive/folders/1kn13Bzs3Y6EAWAD2E-dw5c7AzMOnm2Sb?usp=sharing", description: "Menghitung kombinasi biaya minimum pembelian pupuk Standard dan Super untuk lahan petani pakai metode grafik." },
+    { id: 2, title: "Tugas 2: Maksimasi Laba (Metode Grafik)", date: "02 Mar 2026", status: "submitted", fileUrl: "https://docs.google.com/spreadsheets/d/1mjrFThmFeZwUACeUqx6XnsnrRGwt7e66/edit?usp=sharing&ouid=100885773930294086459&rtpof=true&sd=true", description: "Nyari kombinasi jumlah tas Dora dan Spongebob yang harus diproduksi biar untung pabrik mentok maksimal, pakai metode grafik" },
+    { id: 3, title: "Tugas 3: Metode Simpleks", date: "09 Apr 2026", status: "submitted", fileUrl: "https://drive.google.com/file/d/127ulY6Rytdn8TAr1njOVXuHL1C82HMQV/view?usp=sharing", description: "Penyelesaian masalah optimasi yang variabelnya banyak pakai iterasi tabel. Soalnya kalau variabelnya lebih dari dua udah pusing nggak bisa digambar di grafik wkwk." },
+    { id: 4, title: "Tugas 4: Transportasi Reset Oprasi", date: "23 Apr 2026", status: "submitted", fileUrl: "https://docs.google.com/spreadsheets/d/1QJ5hn_WmHTYepf-raNvCWR4qeBaW26qy/edit?usp=sharing&ouid=100885773930294086459&rtpof=true&sd=true", description: "Nyari rute pengiriman barang paling hemat pakai metode NWC dan Biaya Terkecil." },
+    { id: 5, title: "Tugas 5: Coming soon", date: "TBA", status: "locked", fileUrl: "#", description: "Coming soon." }
 ];
 
 let currentFilter = 'all';
